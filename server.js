@@ -38,6 +38,7 @@ router.update('/products/:pid', products.updateProductById);
 router.delete('/products/:pid', products.deleteProductById);
 
 // #4 Complete the routing for POST, PUT, DELETE
+
 app.get('/api/products/:id', function(req, res){
     var id = req.params.id;
   Product.find({"_id":id},function(err, products){
@@ -70,6 +71,8 @@ app.delete('/api/products/:id', function (req, res){
 app.use('/api', cors(), router);
 
 // #10 Start the server
-
+app.listen(port, function () {
+    console.log('Magic happens on http://localhost:' + port);
+});
 // ===============================
-console.log('Magic happens on http://localhost:' + 8080);
+console.log('Magic happens on http://localhost:' + port);
